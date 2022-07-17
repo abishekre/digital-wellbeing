@@ -10,10 +10,12 @@ let nav1 = document.getElementById("nav1");
 // let nav3 = document.querySelector("#nav3");
 let nav4 = document.querySelector("#nav4");
 
-nav1.style.display = 'none';
-nav2.style.display = 'none';
-nav3.style.display = 'none';
-nav4.style.display = 'none';
+// nav1.style.display = 'none';
+// nav2.style.display = 'none';
+// nav3.style.display = 'none';
+// nav4.style.display = 'none';
+
+nav1.remove();
 
 homebtn.addEventListener('click',function(){
     console.log('home-btn');
