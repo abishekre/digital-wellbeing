@@ -84,6 +84,7 @@ box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.32), -3px -3px 6px rgba(220, 220, 220, 0
   width: 350px;
   bottom: 0px;
   left: 0px;
+  z-index: 10;
 
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.37), -4px -4px 10px rgba(208, 208, 208, 0.15);
 }
@@ -169,7 +170,4 @@ svg{
 .nav-area{
   position: absolute;
   top: 80px;
-}
-h{
-  display: block;
 }
