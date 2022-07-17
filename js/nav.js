@@ -8,74 +8,57 @@ let navarea = document.getElementById("navarea");
 
 let home = document.getElementById("home");
 const nav1 = document.getElementById("nav1");
-// let nav2 = document.querySelector("#nav2");
-// let nav3 = document.querySelector("#nav3");
+// const nav2 = document.getElementById("nav2");
+const nav3 = document.getElementById("nav3");
 const nav4 = document.getElementById("nav4");
 
-// nav1.style.display = 'none';
+nav1.style.display = 'none';
 // nav2.style.display = 'none';
-// nav3.style.display = 'none';
-// nav4.style.display = 'none';
-
-nav1.remove();
-// nav2.remove();
-// nav3.remove();
-nav4.remove();
+nav3.style.display = 'none';
+nav4.style.display = 'none';
 
 homebtn.addEventListener('click',function(){
-    // console.log('home-btn');
-    // navarea.innerHTML = '';
-    // navarea.innerHTML = '<div id="top">    <form id="newSessionForm">        <div class="newses">            <input id="newSessionName" class="newSessionName" type="text" placeholder="Name of the Session">            <input class="submit-btn" type="submit" value="Save">        </div>    </form></div><div class="mid" id="mid">    </div>'
-
-    home.remove();
-    nav1.remove();
-// nav2.remove();
-// nav3.remove();
-nav4.remove();
-navarea.appendChild(home);
+    console.log('home-btn');
+    nav1.style.display = 'none';
+    // nav2.style.display = 'none';
+    nav3.style.display = 'none';
+    nav4.style.display = 'none';
+    home.style.display = 'inline';
 
 });
 
 btn1.addEventListener('click',function(){
     console.log('btn-1-dif');
-    // navarea.innerHTML='<div id="top">    <form id="newSessionForm">        <div class="newses">            <input id="newSessionName" class="newSessionName" type="text" placeholder="Name of the Session">            <button id="submit-btn" class="submit-btn" value="Save"> Save</button>       </div>    </form></div><div class="mid" id="mid">    </div>';
-    home.remove();
-    nav1.remove();
-    // nav2.remove();
-    // nav3.remove();
-    nav4.remove();
-    navarea.appendChild(nav1);
+    nav1.style.display = 'inline';
+    // nav2.style.display = 'none';
+    nav3.style.display = 'none';
+    nav4.style.display = 'none';
+    home.style.display = 'none';
 });
 
 btn2.addEventListener('click',function(){
-    // console.log('btn-2');
-    // navarea.innerHTML = '';
-    home.remove();
-    nav1.remove();
-    // nav2.remove();
-    // nav3.remove();
-    nav4.remove();
-    // navarea.appendChild(nav2);
+    console.log('btn-2');
+    nav1.style.display = 'none';
+    // nav2.style.display = 'inline';
+    nav3.style.display = 'none';
+    nav4.style.display = 'none';
+    home.style.display = 'none';
 });
 
 btn3.addEventListener('click',function(){
     console.log('btn-3');
-    navarea.innerHTML = '';
-    home.remove();
-    nav1.remove();
-    // nav2.remove();
-    // nav3.remove();
-    nav4.remove();
-    // navarea.appendChild(nav3);
+    nav1.style.display = 'none';
+    // nav2.style.display = 'none';
+    nav3.style.display = 'block';
+    nav4.style.display = 'none';
+    home.style.display = 'none';
 });
 
 btn4.addEventListener('click',function(){
     console.log('btn-4');
-    // navarea.innerHTML='<div class="option1"><label class="option-text" for="auto_skip_ads">Disable Ads</label><div class="check"><label class="switch"> <input type="checkbox" id="auto_skip_ads" class="auto_skip_ads" value="auto_skip_ads" unchecked />    <span class="slider round"></span></label></div></div>  <div class="option2">    <label class="option-text" for="remove_entire_sidebar">      Center contents    </label>    <div class="check">      <label class="switch">        <input type="checkbox" id="remove_entire_sidebar" class="remove_entire_sidebar" value="remove_entire_sidebar" unchecked />        <span class="slider round"></span>      </label>    </div>  </div>    <div class="option3">    <label class="option-text" for="remove_comments">      Disable Comments    </label>    <div class="check">      <label class="switch">        <input type="checkbox" id="remove_comments" class="remove_comments" value="remove_comments" unchecked />        <span class="slider round"></span>      </label>    </div>  </div>  <div class="manage_history-btn" id="manage_history_container">    <a id="manage_history" href="https://myactivity.google.com/product/youtube" target="_blank"><label class="manage_history-text">Manage YouTube History</label> </a>  </div>'
-    home.remove();
-    nav1.remove();
-    // nav2.remove();
-    // nav3.remove();
-    nav4.remove();
-    navarea.appendChild(nav4);
+    nav1.style.display = 'none';
+    // nav2.style.display = 'none';
+    nav3.style.display = 'none';
+    nav4.style.display = 'inline';
+    home.style.display = 'none';
 });

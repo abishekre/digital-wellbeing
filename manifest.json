@@ -20,8 +20,12 @@
     }
   ],
 
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+
   "browser_action": {
-    "default_popup": "options.html",
+    "default_popup": "popup.html",
     "default_title": "Digital Wellbeing",
     "default_icon": {
       "16": "assets/icons/icon16.png",
@@ -29,14 +33,19 @@
       "128": "assets/icons/icon128.png"
     }
   },
+
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
   },
+
   "permissions": [
     "storage",
     "*://*.youtube.com/*",
     "tabs",
-    "notifications"
-  ]
+    "notifications",
+    "idle"
+  ],
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com; object-src 'self'"
 }

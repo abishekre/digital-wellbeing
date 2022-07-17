@@ -170,3 +170,6 @@ svg{
   position: absolute;
   top: 80px;
 }
+h{
+  display: block;
+}

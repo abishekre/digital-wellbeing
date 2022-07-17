@@ -1,73 +1,178 @@
+var bg = chrome.extension.getBackgroundPage();
 
-if (typeof browser === 'undefined') {
-  browser = typeof chrome !== 'undefined' ? chrome : null;
-}
+// Saves options to localStorage.
+function save_options() {
+  // Save blacklist domains
+  var blackListEl = document.getElementById("blacklist");
+  var blacklist_domains = blackListEl.value.split(/\r?\n/);
+  var blacklist = [];
+  // Get rid of empty lines
+  for (var i = 0; i < blacklist_domains.length; i++) {
+    var domain = blacklist_domains[i];
+    if (domain) {
+      blacklist.push(domain);
+    }
+  }
+  blackListEl.value = blacklist.join("\n");
+  localStorage["blacklist"] = JSON.stringify(blacklist);
 
-// Some global constants.
-const HTML = document.documentElement;
-const SETTINGS_LIST = {
-  "auto_skip_ads":                     { defaultValue: false, eventType: 'click' },
-  "remove_entire_sidebar":             { defaultValue: false, eventType: 'click' },
-  "remove_comments":                   { defaultValue: false, eventType: 'click' },
-};
-const VALID_SETTINGS = Object.keys(SETTINGS_LIST);
-
-// Load the options menu with our settings.
-document.addEventListener("DOMContentLoaded", () => {
-
-  // Defaults.
-  Object.entries(SETTINGS_LIST).forEach(([key, { defaultValue: value }]) => {
-    const settingButton = document.getElementById(key);
-    if (settingButton) settingButton.checked = value;
-    HTML.setAttribute(key, value);
-    const button = document.getElementById(key);
-    if (button && 'checked' in button) button.checked = value;
-  });
-
-  // Sync with local settings.
-  browser && browser.storage.local.get(localSettings => {
-    Object.entries(localSettings).forEach(([key, value]) => {
-      if (!VALID_SETTINGS.includes(key)) return;
-      HTML.setAttribute(key, value);
-      const button = document.getElementById(key);
-      if (button && 'checked' in button) button.checked = value;
-    });
-  });
-});
-
-
-// Change settings with the options menu.
-Object.entries(SETTINGS_LIST).forEach(([key, { eventType }]) => {
-  const settingElements = Array.from(document.getElementsByClassName(key));
-  settingElements.forEach(button => button.addEventListener(eventType, async e => {
-
-    // Toggle on click: new value is opposite of old value.
-    const value = !(String(HTML.getAttribute(key)).toLowerCase() === "true");
-
-    // Communicate changes (to local settings, content-script.js, etc.)
-    let saveObj = { [key]: value };
-
-    // Update options page.
-    Object.entries(saveObj).forEach(([key, value]) => HTML.setAttribute(key, value));
-    if ('checked' in button) button.checked = value;
-
-    if (browser) {
-
-      // Update local storage.
-      browser.storage.local.set(saveObj);
-      const messageObj = Object.entries(saveObj).map(([key, value]) => {
-        return { key, value };
-      });
-
-      // Update running tabs.
-      if (messageObj) {
-        browser.tabs.query({}, tabs => {
-          tabs.forEach(tab => {
-            browser.tabs.sendMessage(tab.id, { settingChanges: messageObj });
-          });
-        });
+  // Remove data for sites that have been added to the blacklist
+  var domains = JSON.parse(localStorage["domains"]);
+  for (var domain in domains) {
+    for (var i = 0; i < blacklist.length; i++) {
+      if (domain.match(blacklist[i])) {
+        // Remove data for any domain on the blacklist
+        delete domains[domain];
+        delete localStorage[domain];
+        localStorage["domains"] = JSON.stringify(domains);
       }
     }
+  }
 
-  }));
+  function timetosecs(times)
+  {
+    var a = times.split(":");
+    var sum = 0;
+    sum = parseInt(a[0])*3600 + parseInt(a[1])*60 + parseInt(a[2]);
+    if (sum>86400)
+      return 86400;
+    return sum;
+  }
+
+  //Save Restricted Domains
+  var restrictionlist1 = document.getElementById("restrictionlist");
+  var restrictionlist_domains = restrictionlist1.value.split(/\r?\n/);
+  var restrictiontime1 = document.getElementById("restrictiontime");
+  var restrictiontimes = restrictiontime1.value.split(/\r?\n/);
+  var restrictiontime = [];
+  var restrictionlist = [];
+  for (var i = 0; i< restrictiontimes.length; i++) {
+    var times = restrictiontimes[i];
+    if(times) {
+      var secs = timetosecs(times);
+      var seconds = secs.toString();
+      restrictiontime.push(seconds);
+    }
+  }
+  //restrictiontime1.value = restrictiontime.join("\n");
+  // Get rid of empty lines
+  for (var i = 0; i < restrictionlist_domains.length; i++) {
+    var domain = restrictionlist_domains[i];
+    if (domain) {
+      restrictionlist.push(domain);
+    }
+  }
+  restrictionlist1.value = restrictionlist.join("\n");
+  localStorage["restrictionlist"] = JSON.stringify(restrictionlist);
+  localStorage["restrictiontime"] = JSON.stringify(restrictiontime);
+  var times = JSON.parse(localStorage["restrictiontime"]);
+  var restrictiontimel = document.getElementById("restrictiontime");
+  var restrictiontime = [];
+  for( var i = 0; i<times.length; i++) {
+    var n = times[i];
+    var m = secstotime(n);
+    restrictiontime.push(m);
+  }
+  restrictiontimel.value = restrictiontime.join("\n");
+  
+  // Check limit data
+  var limit_data = document.getElementById("chart_limit");
+  var limit = parseInt(limit_data.value);
+  if (limit) {
+    localStorage["chart_limit"] = limit;
+    limit_data.value = limit;
+  } else {
+    limit_data.value = localStorage["chart_limit"];
+  }
+
+  // Update status to let user know options were saved.
+  var status = document.getElementById("status");
+  status.innerHTML = "Options Saved.";
+  status.className = "success";
+  setTimeout(function () {
+    status.innerHTML = "";
+    status.className = "";
+  }, 750);
+}
+
+
+function secstotime(times)
+{
+  var a = parseInt(times);
+  var h = 0;
+  var m = 0;
+  while(a>0)
+  {
+    if(a>=3600)
+    {
+      a -= 3600;
+      h += 1;
+    }
+    else if(a>=60)
+    {
+      a -= 60;
+      m += 1;
+    }
+    else
+      break;
+  }
+  var hr = h.toString();
+  var mt = m.toString();
+  var s = a.toString();
+  var res = hr.concat(":", mt, ":", s);
+  return res;
+}
+
+// Restores select box state to saved value from localStorage.
+function restore_options() {
+  var blacklist = JSON.parse(localStorage["blacklist"]);
+  var blackListEl = document.getElementById("blacklist");
+  blackListEl.value = blacklist.join("\n");
+  var restrictionlist = JSON.parse(localStorage["restrictionlist"]);
+  var restrictionlistl = document.getElementById("restrictionlist");
+  restrictionlistl.value = restrictionlist.join("\n");
+  var times = JSON.parse(localStorage["restrictiontime"]);
+  var restrictiontimel = document.getElementById("restrictiontime");
+  var restrictiontime = [];
+  for( var i = 0; i<times.length; i++) {
+    var n = times[i];
+    var m = secstotime(n);
+    restrictiontime.push(m);
+  }
+  restrictiontimel.value = restrictiontime.join("\n");
+  var limitEl = document.getElementById("chart_limit");
+  limitEl.value = localStorage["chart_limit"];
+}
+
+// Clear all data except for blacklist
+function clearData() {
+  // Clear everything except for blacklist
+  var blacklist = localStorage["blacklist"];
+  localStorage.clear();
+  localStorage["blacklist"] = blacklist;
+  bg.setDefaults();
+  location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Restore options
+  restore_options();
+
+  // Set handlers for option descriptions
+  document
+    .querySelector("#save-button")
+    .addEventListener("click", save_options);
+  document.querySelector("#clear-data").addEventListener("click", clearData);
+  var rows = document.querySelectorAll("tr");
+  var mouseoverHandler = function () {
+    this.querySelector(".description").style.visibility = "visible";
+  };
+  var mouseoutHandler = function () {
+    this.querySelector(".description").style.visibility = "hidden";
+  };
+  for (var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    row.addEventListener("mouseover", mouseoverHandler);
+    row.addEventListener("mouseout", mouseoutHandler);
+  }
 });
