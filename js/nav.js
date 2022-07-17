@@ -16,17 +16,17 @@ const nav4 = document.getElementById("nav4");
 // nav3.style.display = 'none';
 // nav4.style.display = 'none';
 
-// nav1.remove();
-// nav4.remove();
+nav1.remove();
+nav4.remove();
 // navarea.remove();
 
-while (nav1.hasChildNodes()) {
-  nav1.removeChild(nav1.firstChild);
-}
+// while (nav1.hasChildNodes()) {
+//   nav1.removeChild(nav1.firstChild);
+// }
 
-while (nav4.hasChildNodes()) {
-    nav4.removeChild(nav4.firstChild);
-  }
+// while (nav4.hasChildNodes()) {
+//     nav4.removeChild(nav4.firstChild);
+//   }
 
 homebtn.addEventListener('click',function(){
     console.log('home-btn');
