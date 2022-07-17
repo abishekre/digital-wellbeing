@@ -1,7 +1,7 @@
 started=0;
 
-chrome.browserAction.setBadgeBackgroundColor({ color: [100, 100, 100, 255] });
-chrome.browserAction.setBadgeText( { text: 'Off' } );
+// chrome.browserAction.setBadgeBackgroundColor({ color: [100, 100, 100, 255] });
+// chrome.browserAction.setBadgeText( { text: 'Off' } );
 
 
 function setalarm(t)
