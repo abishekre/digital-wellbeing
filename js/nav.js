@@ -6,15 +6,15 @@ let btn4 =  document.getElementById("btn-mod-4");
 let navarea = document.getElementById("navarea");
 
 let nav1 = document.getElementById("nav1");
-// let nav2 = document.getElementById("nav2");
-// let nav3 = document.getElementById("nav3");
+let nav2 = document.getElementById("nav2");
+let nav3 = document.getElementById("nav3");
 let nav4 = document.getElementById("nav4");
 
 
-// nav1.remove();
-// nav2.remove();
-// nav3.remove();
-// nav4.remove();
+nav1.style.display = 'none';
+nav2.style.display = 'none';
+nav3.style.display = 'none';
+nav4.style.display = 'none';
 
 homebtn.addEventListener('click',function(){
     console.log('home-btn');
@@ -25,6 +25,8 @@ homebtn.addEventListener('click',function(){
 btn1.addEventListener('click',function(){
     console.log('btn-1-dif');
     // navarea.innerHTML='<div id="top">    <form id="newSessionForm">        <div class="newses">            <input id="newSessionName" class="newSessionName" type="text" placeholder="Name of the Session">            <button id="submit-btn" class="submit-btn" value="Save"> Save</button>       </div>    </form></div><div class="mid" id="mid">    </div>';
+    nav1.style.display = 'none';
+
 });
 
 btn2.addEventListener('click',function(){
