@@ -1,0 +1,42 @@
+{
+  "name": "Digital WellBeing",
+  "description": "To make work on Internet work",
+  "manifest_version": 2,
+  "version": "2",
+
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["js/content-script.js"],
+      "css": ["css/yt-remove.css"],
+      "all_frames": true,
+      "matches": ["*://*.youtube.com/*"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "browser_action": {
+    "default_popup": "options.html",
+    "default_title": "Digital Wellbeing",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "storage",
+    "*://*.youtube.com/*",
+    "tabs",
+    "notifications"
+  ]
+}
