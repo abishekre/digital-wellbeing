@@ -50,6 +50,14 @@ background: var(--dark);
 box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.32), -2px -2px 5px rgba(220, 220, 220, 0.25);
 border-radius: 10px;
 }
+.icon-box:hover{
+  box-shadow: 8px 8px 15px rgba(255, 255, 255, 0), -8px -8px 1 rgba(255, 255, 255, 0);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.53), inset -5px -5px 10px rgba(255, 255, 255, 0.12);
+}
+.header-icon:hover{
+  box-shadow: 8px 8px 15px rgba(255, 255, 255, 0), -8px -8px 1 rgba(255, 255, 255, 0);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.53), inset -5px -5px 10px rgba(255, 255, 255, 0.12);
+}
 .header-icon{
   position: absolute;
   border-radius: 10px;

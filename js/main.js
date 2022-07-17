@@ -1,9 +1,8 @@
-storageName = 'tabSessions';
+storageName = 'tabSessions'
 
 function saveNewSession() {
 	if ($('#newSessionName').val() !== '') {
 		chrome.tabs.query({currentWindow: true}, function(activeTabs) {
-			console.log($('#newSessionName').val());
 			var sessions = JSON.parse(localStorage.getItem(storageName))
 			activeTabs.splice(0, 0, $('#newSessionName').val())
 			sessions.push(activeTabs)
@@ -93,20 +92,11 @@ function deleteSession(event) {
 	printSessions()
 	$('#newSessionName').focus()
 }
-document.addEventListener('DOMContentLoaded',() =>{
 
-	console.log("hello");
+$(document).ready(function() {
 	$('#newSessionForm').on('submit', function(event) {
-		console.log("going to save");
 		event.preventDefault()
 		saveNewSession()
 	})
 	printSessions()
 })
-// $(document).ready(function() {
-// 	$('#newSessionForm').on('submit', function(event) {
-// 		event.preventDefault()
-// 		saveNewSession()
-// 	})
-// 	printSessions()
-// })
