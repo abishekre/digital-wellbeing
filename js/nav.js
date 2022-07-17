@@ -16,6 +16,7 @@ let nav4 = document.querySelector("#nav4");
 // nav4.style.display = 'none';
 
 nav1.remove();
+nav4.remove();
 
 homebtn.addEventListener('click',function(){
     console.log('home-btn');
