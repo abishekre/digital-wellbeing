@@ -5,18 +5,28 @@ let btn3 =  document.getElementById("btn-mod-3");
 let btn4 =  document.getElementById("btn-mod-4");
 let navarea = document.getElementById("navarea");
 
-let nav1 = document.getElementById("nav1");
+const nav1 = document.getElementById("nav1");
+console.log(nav1);
 // let nav2 = document.querySelector("#nav2");
 // let nav3 = document.querySelector("#nav3");
-let nav4 = document.querySelector("#nav4");
+const nav4 = document.getElementById("nav4");
 
 // nav1.style.display = 'none';
 // nav2.style.display = 'none';
 // nav3.style.display = 'none';
 // nav4.style.display = 'none';
 
-nav1.remove();
-nav4.remove();
+// nav1.remove();
+// nav4.remove();
+// navarea.remove();
+
+while (nav1.hasChildNodes()) {
+  nav1.removeChild(nav1.firstChild);
+}
+
+while (nav4.hasChildNodes()) {
+    nav4.removeChild(nav4.firstChild);
+  }
 
 homebtn.addEventListener('click',function(){
     console.log('home-btn');
