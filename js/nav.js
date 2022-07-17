@@ -5,10 +5,10 @@ let btn3 =  document.getElementById("btn-mod-3");
 let btn4 =  document.getElementById("btn-mod-4");
 let navarea = document.getElementById("navarea");
 
-let nav1 = document.getElementById("nav1");
-let nav2 = document.getElementById("nav2");
-let nav3 = document.getElementById("nav3");
-let nav4 = document.getElementById("nav4");
+let nav1 = document.querySelector("#nav1");
+let nav2 = document.querySelector("#nav2");
+let nav3 = document.querySelector("#nav3");
+let nav4 = document.querySelector("#nav4");
 
 
 nav1.style.display = 'none';
