@@ -1,0 +1,20 @@
+:root {
+	--dark: #333333;
+	--hightlight-text: #AD00FF;
+	--dark-black: #2a2a2a;
+	--white: #ffffff;
+	--dlt-btn-clr: #ff4a4a;
+}
+body{
+    background-color: var(--dark);
+    color: var(--white);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 16px;
+	line-height: 29px;
+	align-items: center;
+}

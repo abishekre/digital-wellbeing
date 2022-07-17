@@ -12,7 +12,7 @@
 
   "content_scripts": [
     {
-      "js": ["js/content-script.js"],
+      "js": ["js/content-mod4.js"],
       "css": ["css/yt-remove.css"],
       "all_frames": true,
       "matches": ["*://*.youtube.com/*"],
@@ -21,7 +21,10 @@
   ],
 
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": [
+      "js/background-mod3.js",
+      "js/background-mod2.js"
+    ]
   },
 
   "browser_action": {
@@ -44,8 +47,11 @@
     "*://*.youtube.com/*",
     "tabs",
     "notifications",
-    "idle"
+    "idle",
+    "contentSettings",
+    "<all_urls>"
   ],
 
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com; object-src 'self'",
+  "offline_enabled": true
 }

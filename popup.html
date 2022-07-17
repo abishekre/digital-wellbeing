@@ -15,9 +15,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 
-    <!-- Load the AJAX API -->
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <!-- Load popup script -->
     <script src="js/popup-mod3.js"></script>
     
   </head>
@@ -30,6 +28,9 @@
       <div class='header-text' id='header-text'><h3>Digital WellBeing</h3> </div>
     </div>
 <div id="navarea">
+
+<!-- home ---------------------------------------------------------------------------------->
+
   <div id="home">
     <div>
       <img class="home-img" src="assets\icons\icon128.png" alt="Digital WellBeing Logo">
@@ -38,21 +39,52 @@
       <label class="home-head">Digital WellBeing</label>
       <label class="home-sub">Make work in Internet work for you</label>
     </div>
-    </div>
+  </div>
 
+<!-- nav 1 --------------------------------------------------------------------------------->
 
-    <div id="nav1">
-      <div id="top">
-        <form id="newSessionForm">
-          <div class="newses">
-            <input id="newSessionName" class="newSessionName" type="text" placeholder="Name of the Session">
-            <input class="submit-btn" type="submit" value="Save">
-          </div>
-        </form>
-      </div>
-      <div class="mid" id="mid">
+  <div id="nav1">
+    <div id="top">
+      <form id="newSessionForm">
+        <div class="newses">
+          <input id="newSessionName" class="newSessionName" type="text" placeholder="Name of the Session">
+          <input class="submit-btn" type="submit" value="Save">
         </div>
+      </form>
     </div>
+    <div class="mid" id="mid">
+    </div>
+  </div>
+
+<!-- nav2 ----------------------------------------------------------------------------------->
+    <div class="nav2" id="nav2">
+      <div class="app-box">
+        <div class="app-inner">
+          <div class="title">
+            <span>Timer</span>
+          </div>
+          <div class="timer-wrap">
+            <div id="timer">
+              <div class="circle"></div>
+            </div>
+            <div class="time">
+              <input type="text" maxlength="2" value="00" id="hh"><span>h</span>
+              <input type="text" maxlength="2" value="00" id="mm"><span>m</span>
+              <input type="text" maxlength="2" value="00" id="ss"><span>s</span>
+            </div>
+          </div>
+          <div class="action">
+            <div class="action-item">
+              <a href="#" id="start" class="btn green">Start</a>
+            </div>
+            <div class="action-item">
+              <a href="#" id="pause" class="btn not-active">Stop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- nav 3 ------------------------------------------------------------------------------------------------>
 
     <div class="nav3" id="nav3">
       <div id="nav">
@@ -73,9 +105,41 @@
       </div>
     </div>
 
+<!-- nav 4 ------------------------------------------------------------------------------------------------------------>
 
     <div id="nav4">
-      <div class="option1"><label class="option-text" for="auto_skip_ads">Disable Ads</label><div class="check"><label class="switch"> <input type="checkbox" id="auto_skip_ads" class="auto_skip_ads" value="auto_skip_ads" unchecked />    <span class="slider round"></span></label></div></div>  <div class="option2">    <label class="option-text" for="remove_entire_sidebar">      Center contents    </label>    <div class="check">      <label class="switch">        <input type="checkbox" id="remove_entire_sidebar" class="remove_entire_sidebar" value="remove_entire_sidebar" unchecked />        <span class="slider round"></span>      </label>    </div>  </div>    <div class="option3">    <label class="option-text" for="remove_comments">      Disable Comments    </label>    <div class="check">      <label class="switch">        <input type="checkbox" id="remove_comments" class="remove_comments" value="remove_comments" unchecked />        <span class="slider round"></span>      </label>    </div>  </div>  <div class="manage_history-btn" id="manage_history_container">    <a id="manage_history" href="https://myactivity.google.com/product/youtube" target="_blank"><label class="manage_history-text">Manage YouTube History</label> </a>  </div>
+      <div class="option1">
+        <label class="option-text" for="auto_skip_ads">Disable Ads</label>
+        <div class="check">
+          <label class="switch">
+            <input type="checkbox" id="auto_skip_ads" class="auto_skip_ads" value="auto_skip_ads" unchecked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="option2">
+        <label class="option-text" for="remove_entire_sidebar">Center contents</label>
+        <div class="check">
+          <label class="switch">
+            <input type="checkbox" id="remove_entire_sidebar" class="remove_entire_sidebar" value="remove_entire_sidebar" unchecked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="option3">
+        <label class="option-text" for="remove_comments">Disable Comments</label>
+        <div class="check">
+          <label class="switch">
+            <input type="checkbox" id="remove_comments" class="remove_comments" value="remove_comments" unchecked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="manage_history-btn" id="manage_history_container">
+        <a id="manage_history" href="https://myactivity.google.com/product/youtube" target="_blank">
+          <label class="manage_history-text">Manage YouTube History</label>
+        </a> 
+      </div>
     </div>
 
 
@@ -95,9 +159,13 @@
       </button>
     </div>
 
+    <script src="js/popup-mod2.js"></script>
+    <script src="js/popup-mod3.js"></script>
     <script src="js/popup-mod4.js"></script>
     <script src="js/main.js"></script>
     <script src="js/nav.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <!-- <script src="js/jquery-1.9.1.min.js"></script> -->
   </body>
 
