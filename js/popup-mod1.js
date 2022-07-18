@@ -39,12 +39,13 @@ function printSessions() {
 			$('#deleteSession' + i).click({index: i}, deleteSession)
 		}
 	}
-
-	function getSessionLine(tabsArray, id) {
-		var output = '<span class="controls"><button id="deleteSession' + id
+	
+	function getSessionLine(tabsArray, id)      {
+		var output = '<div class="seslist"><div class="savedname" >'+tabsArray[0]+'</div>'
+		var output = output + ' '+ '<span class="controls"><button id="deleteSession' + id
 			+ '" class="dlt-btn">Delete</button><button id="loadSession' + id
-			+ '" class="ld-btn">Load</button></span>'
-		output += ' ' + tabsArray[0]
+			+ '" class="ld-btn">Load</button></span></div>'
+		// output += ' ' + '<div class="savedname" >'+tabsArray[0]+'</div>'
 		return output
 	}
 }

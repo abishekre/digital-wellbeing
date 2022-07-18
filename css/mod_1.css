@@ -5,6 +5,13 @@
 	--white: #ffffff;
 	--dlt-btn-clr: #ff4a4a;
 }
+.nav1{
+	position: absolute;
+	top: 80px;
+	height: 350px;
+	width: 330px;
+	overflow: auto;
+}
 .newSessionName{
 	position: absolute;
 	width: 180px;

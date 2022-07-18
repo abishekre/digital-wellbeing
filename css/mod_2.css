@@ -5,9 +5,13 @@
     --white: #ffffff;
   }
 .nav2{
-    position: absolute;
-    top: 99px;
-    z-index: 5;
+	position: absolute;
+	top: 80px;
+  left: 0px;
+	height: 365px;
+  width: 355px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 /* [class^="icon-"]:before, [class*=" icon-"]:before {
 	font-family: 'Inter';
@@ -47,11 +51,12 @@
 	border: solid 8px #F2F3F3;
 }
 .inp{
+    height: 80px;
+    width: 80px;
+    padding: 5px;
     position: absolute;
 	color: var(--white);
     color: #fff;
-	text-decoration: none;
-	display: inline-block;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 200;

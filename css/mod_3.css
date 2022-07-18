@@ -1,4 +1,12 @@
 .nav3{
     position: absolute;
-    top: 99px;
+	top: 80px;
+  left: 0px;
+	height: 365px;
+  width: 355px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+svg{
+    overflow: auto;
 }
