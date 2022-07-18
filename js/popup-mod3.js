@@ -15,7 +15,7 @@ if (window.top === window.self) {
       show(bg.TYPE.average);
     } else if (bg.mode === bg.TYPE.all) {
       show(bg.TYPE.all);
-    } 
+    }
   });
 }
 // Show options in a new tab
@@ -77,7 +77,7 @@ function displayData(type) {
       );
     } else if (type === bg.TYPE.all) {
       numSeconds = domain_data.all;
-    } 
+    }
     if (numSeconds > 0) {
       chart_data.push([
         domain,
@@ -152,7 +152,7 @@ function displayData(type) {
     numSeconds = Math.floor(total.all / parseInt(localStorage["num_days"], 10));
   } else if (type === bg.TYPE.all) {
     numSeconds = total.all;
-  } 
+  }
   limited_data.push([
     {
       v: "Total",
@@ -204,6 +204,9 @@ function drawChart(chart_data) {
     },
     width: 350,
     height: 300,
+    backgroundColor: '#333333',
+    fontColor: '#ffffff',
+    is3D: true
     // chartArea: {
     //   width: "100%",
     //   height: "100%",
@@ -228,14 +231,14 @@ function drawTable(table_data, type) {
     timeDesc = "Daily Average";
   } else if (type === bg.TYPE.all) {
     timeDesc = "Over " + localStorage["num_days"] + " Days";
-  } 
+  }
   data.addColumn("number", "Time Spent (" + timeDesc + ")");
   data.addRows(table_data);
 
   var options = {
     allowHtml: true,
     sort: "disable",
-    width: "100%",
+    width: "355",
     height: "100%",
   };
   var table = new google.visualization.Table(
@@ -259,7 +262,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelector("#options").addEventListener("click", showOptions);
-  
+
 
 });
-

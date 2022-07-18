@@ -3,10 +3,18 @@
 	top: 80px;
   left: 0px;
 	height: 365px;
-  width: 355px;
+  width: 345px;
     overflow-y: auto;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 svg{
     overflow: auto;
+}
+#chart_div{
+    position: absolute;
+    left: -50px;
+}
+#table_div{
+    position: absolute;
+    top: 300px;
 }
