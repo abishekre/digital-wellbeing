@@ -249,16 +249,19 @@ function drawTable(table_data, type) {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#today").addEventListener("click", function () {
     show(bg.TYPE.today);
+    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
   });
   document.querySelector("#average").addEventListener("click", function () {
     show(bg.TYPE.average);
+    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
   });
   document.querySelector("#all").addEventListener("click", function () {
     show(bg.TYPE.all);
+    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
   });
 
   document.querySelector("#options").addEventListener("click", showOptions);
-  document.getElementsByTagName("svg")[0].style.overflow = 'visible';
+  // document.getElementsByTagName("svg")[0].style.overflow = 'visible';
   // document.getElementsByTagName("rect")[0].style.left = '-100px';
 
 });
@@ -268,4 +271,4 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 // document.getElementsByTagName("svg").style.overflow = 'visible';
 
-document.getElementsByTagName("svg")[0].style.overflow = 'visible';
+// document.getElementsByTagName("svg")[0].style.overflow = 'visible';

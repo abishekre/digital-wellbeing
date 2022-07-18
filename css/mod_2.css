@@ -274,19 +274,3 @@
 	width: 100%;
 }
 
-/* Media queries for high-res displays */
-
-@media (-webkit-min-device-pixel-ratio: 2), /*  Firefox16, Chrome, Safari, iOS, Android */
-(min--moz-device-pixel-ratio: 2),    		/*  Older Firefox browsers (prior to Firefox16) */
-(-o-min-device-pixel-ratio: 2/1),    		/*  Opera */
-(min-device-pixel-ratio: 2),         		/*  not defined yet, http://www.w3.org/TR/css3-mediaqueries/ */
-(min-resolution: 2dppx),             		/*  not yet, probably in future, see http://www.w3.org/TR/css3-mediaqueries/ */
-(min-resolution: 192dpi)             		/*  works for non css3 browser */
-	{
-		.time-up {
-			background-image: url('../img/time-up-x2.png');
-			background-size: 240px 178px;
-		}
-
-	}
-

@@ -52,6 +52,7 @@ btn3.addEventListener('click',function(){
     nav3.style.display = 'block';
     nav4.style.display = 'none';
     home.style.display = 'none';
+    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
 });
 
 btn4.addEventListener('click',function(){
