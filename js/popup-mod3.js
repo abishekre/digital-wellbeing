@@ -198,6 +198,13 @@ function drawChart(chart_data) {
     tooltip: {
       text: "percentage",
     },
+    legend: {
+      position: 'right',
+      textStyle:{color: 'white'}
+    },
+    pieSliceBorderColor: '#333333',
+    pieSliceText: 'none',
+    backgroundColor: '#333333',
     width: 400,
     height: 300,
     backgroundColor: '#333333',
@@ -211,12 +218,6 @@ function drawChart(chart_data) {
     // },
   };
 
-  // var options = {
-  //   width: 400,
-  //   height: 240,
-  //   title: 'Toppings I Like On My Pizza',
-  //   colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
-  // };
 
   // Instantiate and draw our chart, passing in some options.
   var chart = new google.visualization.PieChart(
@@ -239,12 +240,24 @@ function drawTable(table_data, type) {
   data.addColumn("number", "Time Spent (" + timeDesc + ")");
   data.addRows(table_data);
 
+  var cssClassNames = {
+    'headerRow': 'cssHeaderRow',
+    'tableRow': 'cssTableRow',
+    'hoverTableRow': 'cssHoverTableRow',
+    'oddTableRow': 'cssOddTableRow',
+    // 'tableCell': 'custom-table-td'
+  };
+
   var options = {
     allowHtml: true,
     sort: "disable",
-    width: "355",
+    width: "100%",
     height: "100%",
+    cssClassNames: cssClassNames,
+    border: '#333333'
+
   };
+
   var table = new google.visualization.Table(
     document.getElementById("table_div")
   );
@@ -252,6 +265,7 @@ function drawTable(table_data, type) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  // document.getElementById("today").active();
   document.querySelector("#today").addEventListener("click", function () {
     show(bg.TYPE.today);
     document.getElementsByTagName("svg")[0].style.overflow = 'visible';
@@ -266,14 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelector("#options").addEventListener("click", showOptions);
-  // document.getElementsByTagName("svg")[0].style.overflow = 'visible';
-  // document.getElementsByTagName("rect")[0].style.left = '-100px';
+  
 
 });
 
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   console.log('DOM fully loaded and parsed');
-// });
-// document.getElementsByTagName("svg").style.overflow = 'visible';
-
-// document.getElementsByTagName("svg")[0].style.overflow = 'visible';

@@ -103,7 +103,7 @@ box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.32), -3px -3px 6px rgba(220, 220, 220, 0
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.37), -8px -8px 15px rgba(208, 208, 208, 0.15);
 }
 .nav-btn:active,.nav-btn:focus{
-  box-shadow: 8px 8px 15px rgba(255, 255, 255, 0), -8px -8px 1 rgba(255, 255, 255, 0);
+  box-shadow: 8px 8px 15px rgba(255, 255, 255, 0), -8px -8px 15px rgba(255, 255, 255, 0);
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.53), inset -5px -5px 10px rgba(255, 255, 255, 0.12);
 
 }
