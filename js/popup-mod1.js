@@ -45,6 +45,7 @@ function printSessions() {
 		var output = output + ' '+ '<span class="controls"><button id="deleteSession' + id
 			+ '" class="dlt-btn">Delete</button><button id="loadSession' + id
 			+ '" class="ld-btn">Load</button></span></div>'
+		console.log(output);
 		// output += ' ' + '<div class="savedname" >'+tabsArray[0]+'</div>'
 		return output
 	}

@@ -202,7 +202,9 @@ function drawChart(chart_data) {
     height: 300,
     backgroundColor: '#333333',
     fontColor: '#ffffff',
-    is3D: true
+    // is3D: true,
+    pieSliceText: 'none',
+
     // chartArea: {
     //   width: "100%",
     //   height: "100%",

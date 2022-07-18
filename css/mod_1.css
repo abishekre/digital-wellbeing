@@ -3,14 +3,17 @@
 	--hightlight-text: #AD00FF;
 	--dark-black: #2a2a2a;
 	--white: #ffffff;
-	--dlt-btn-clr: #ff4a4a;
+	--dlt-btn-clr: #CE0000;
+	--save-btn: #06C202;
+	--ld-btn: #8102BD;
 }
 .nav1{
 	position: absolute;
 	top: 80px;
 	height: 350px;
 	width: 330px;
-	overflow: auto;
+  left: 0px;
+    overflow-x: hidden;
 }
 .newSessionName{
 	position: absolute;
@@ -44,11 +47,12 @@
 }
 .newses{
 	position: absolute;
-	width: 295px;
+	/* width: ; */
+	width: 100px;
 	left: 27px;
 	height: 63px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	top: 103px;
 }
 .submit-btn{
@@ -58,7 +62,7 @@
 	padding-right: 20px;
 	margin-top: 2px;
 	left: 210px;
-	background-color: var(--hightlight-text);
+	background-color: var(--ld-btn);
 	border: none;
 	height: 36px;
 	width: 86px;
@@ -89,8 +93,9 @@
 	position: absolute;
 	width: 294px;
 	padding-bottom: 20px;
-	height: fit-content;
-	top: 177px;
+	height: 240px;
+	overflow: auto;
+	top: 167px;
   	color: var(--white);
 	text-align: center;
 	text-decoration: none;
@@ -108,15 +113,19 @@
 }
 
 .dlt-btn{
+	position: absolute;
 	display: flex;
 	vertical-align: middle;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 2px;
+	/* padding-left: 20px;
+	padding-right: 20px; */
+	/* margin-top: 2px; */
 	background-color: var(--dlt-btn-clr);
 	border: none;
-	margin-left: 5px;
-	height: 36px;
+	/* margin-right: 16px; */
+	right: 100px;
+	height: 35px;
+	width: 70px;
+
 	color: var(--white);
 	text-align: center;
 	text-decoration: none;
@@ -127,19 +136,31 @@
 	font-size: 16px;
 	line-height: 29px;
 	align-items: center;
+
 	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.37), -4px -4px 10px rgba(208, 208, 208, 0.15);
 	border-radius: 10px;
+	flex-direction: column;
+}
+.dlt-btn:hover{
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.37), -8px -8px 10px rgba(208, 208, 208, 0.15);
+	transition: .2s ease-in;
 }
 .ld-btn{
+	position: absolute;
+	/* top: -25px; */
 	display: flex;
 	vertical-align: middle;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 2px;
-	margin-left: 5px;
-	background-color: var(--hightlight-text);
+	/* padding-left: 20px;
+	padding-right: 20px; */
+	/* margin-top: 2px; */
+	/* margin-right: 16px; */
+
+	right: 19px;
+	background-color: var(--ld-btn);
 	border: none;
-	height: 36px;
+	height: 35px;
+	width: 70px;
+
 	color: var(--white);
 	text-align: center;
 	text-decoration: none;
@@ -150,6 +171,28 @@
 	font-size: 16px;
 	line-height: 29px;
 	align-items: center;
+
 	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.37), -4px -4px 10px rgba(208, 208, 208, 0.15);
 	border-radius: 10px;
+	flex-direction: column;
+}
+.ld-btn:hover{
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.37), -8px -8px 10px rgba(208, 208, 208, 0.15);
+	transition: .2s ease-in;
+}
+.seslist{
+	/* position: absolute; */
+	display: flex;
+	flex-direction: column;
+	width: 280px;
+	height: 35px;
+	margin-top: 20px;
+}
+.savedname{
+	position: absolute;
+	width: 90px;
+	height: min-content;
+	left: 19px;
+	display: flex;
+	flex-direction: row;
 }
