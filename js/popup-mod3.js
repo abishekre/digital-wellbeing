@@ -195,9 +195,13 @@ function drawChart(chart_data) {
 
   // Set chart options
   var options = {
-    // tooltip: {
-    //   text: "percentage",
-    // },
+    tooltip: {
+      text: "percentage",
+    },
+    legend: {
+      position: 'bottom',
+      textStyle:{color: 'white'}
+    },
     width: 350,
     height: 300,
     // chartArea: {
@@ -206,12 +210,6 @@ function drawChart(chart_data) {
     // },
   };
 
-  // var options = {
-  //   width: 400,
-  //   height: 240,
-  //   title: 'Toppings I Like On My Pizza',
-  //   colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
-  // };
 
   // Instantiate and draw our chart, passing in some options.
   var chart = new google.visualization.PieChart(
@@ -261,14 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelector("#options").addEventListener("click", showOptions);
-  // document.getElementsByTagName("svg")[0].style.overflow = 'visible';
-  // document.getElementsByTagName("rect")[0].style.left = '-100px';
+  
 
 });
 
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   console.log('DOM fully loaded and parsed');
-// });
-// document.getElementsByTagName("svg").style.overflow = 'visible';
-
-// document.getElementsByTagName("svg")[0].style.overflow = 'visible';
