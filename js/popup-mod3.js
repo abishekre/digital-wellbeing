@@ -195,11 +195,14 @@ function drawChart(chart_data) {
 
   // Set chart options
   var options = {
-    // tooltip: {
-    //   text: "percentage",
-    // },
-    width: 350,
+    tooltip: {
+      text: "percentage",
+    },
+    width: 400,
     height: 300,
+    backgroundColor: '#333333',
+    fontColor: '#ffffff',
+    is3D: true
     // chartArea: {
     //   width: "100%",
     //   height: "100%",
@@ -237,7 +240,7 @@ function drawTable(table_data, type) {
   var options = {
     allowHtml: true,
     sort: "disable",
-    width: "100%",
+    width: "355",
     height: "100%",
   };
   var table = new google.visualization.Table(
