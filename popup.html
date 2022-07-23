@@ -62,17 +62,19 @@
     <div class="nav2" id="nav2">
       <div class="app-box">
         <div class="app-inner">
-          <!-- <div class="title"> -->
-            <label class="title">Timer</label>
-          <!-- </div> -->
-          <div class="timer-wrap">
-            <div id="timer">
-              <div class="circle"></div>
-            </div>
+            <div class="time-select">
             <div class="time">
-              <input class="inp hh" type="text" maxlength="2" value="00" id="hh"><span>h</span>
-              <input class="inp mm" type="text" maxlength="2" value="00" id="mm"><span>m</span>
-              <input class="inp ss" type="text" maxlength="2" value="00" id="ss"><span>s</span>
+              <input class="time-inp hh" type="text" maxlength="2" value="00" id="hh">
+              <input class="time-inp mm" type="text" maxlength="2" value="00" id="mm">
+              <input class="time-inp ss" type="text" maxlength="2" value="00" id="ss">
+              <div class="check2">
+                <label class="always-text">Always ON:</label>
+                <label class="switch always-switch">
+                  <input type="checkbox" id="always-on" class="always-on" value="always-on" unchecked />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
             </div>
           </div>
           <div class="action">
