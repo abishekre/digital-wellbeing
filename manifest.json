@@ -52,6 +52,5 @@
     "<all_urls>"
   ],
 
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com; object-src 'self'",
-  "offline_enabled": true
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com; object-src 'self'"
 }

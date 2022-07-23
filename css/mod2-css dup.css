@@ -78,17 +78,17 @@
 .ss{
     left: 110px;
 }
-/* .app-box {
+.app-box {
 	margin: 0 auto;
 	position: relative;
 	width: 300px;
-} */
-/* .app-inner {
+}
+.app-inner {
 	overflow: hidden;
 	font-family: Arial;
 	background-color: #FFF;
-} */
-/* .title {
+}
+.title {
     position: absolute;
 
 }
@@ -130,14 +130,14 @@
 	border: none;
 	font-size: 26px;
 	color: rgb(46, 51, 50);
-} */
-/* input[type="checkbox"] {
+}
+input[type="checkbox"] {
 	display: none;
-} */
-/* .sound-eff input[type="checkbox"] + span {
+}
+.sound-eff input[type="checkbox"] + span {
 	float: right;
-} */
-/* input[type="checkbox"] + span:before {
+}
+input[type="checkbox"] + span:before {
 	content: '';
 	border: 1px solid rgb(239, 239, 239);
 	-webkit-border-radius: 4px;
@@ -146,8 +146,8 @@
 	width: 21px;
 	height: 21px;
 	display: block;
-} */
-/* .sound-eff input[type="checkbox"]:checked + span:before {
+}
+.sound-eff input[type="checkbox"]:checked + span:before {
 	font-family: 'fontello';
 	content: '\e800';
 	border: 1px solid rgb(58, 205, 165);
@@ -155,13 +155,13 @@
 	text-align: center;
 	line-height: 1.6;
 	font-size: 14px;
-} */
-/* .sound-eff {
+}
+ .sound-eff {
 	overflow: hidden;
 	border-top: 1px solid whitesmoke;
 	border-bottom: 1px solid whitesmoke;
-} */
-/* .sound-eff label {
+}
+ .sound-eff label {
 	width: 100%;
 	float: left;
 	padding: 12px 20px;
@@ -169,8 +169,8 @@
 	color: rgb(47, 55, 49);
 	line-height: 1.5;
 	cursor: pointer;
-} */
-/* .sound-eff input {
+}
+ .sound-eff input {
 	float: right;
 	margin: 0;
 }
@@ -219,8 +219,8 @@
 	background-color: #F0F0F0;
 	color: #BDC4BF;
 	cursor: default;
-} */
-/* #popup {
+}
+ #popup {
 	display: none;
 	width: 300px;
 	background-color: #FFFFFF;
@@ -231,8 +231,8 @@
 	-moz-box-shadow: 0px 0px 7px 0px rgba(209, 209, 209, 1);
 	box-shadow: 0px 0px 7px 0px rgba(209, 209, 209, 1);
 	font-family: Arial;
-} */
-/* .time-up-wrap {
+} 
+ .time-up-wrap {
 	padding: 60px 0;
 	position: relative;
 }
@@ -273,4 +273,3 @@
 	text-align: center;
 	width: 100%;
 }
- */
