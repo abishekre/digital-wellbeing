@@ -109,6 +109,7 @@ function deleteSession(event) {
   $("#newSessionName").focus();
 }
 
+//on submit button clicked.
 $(document).ready(function () {
   $("#newSessionForm").on("submit", function (event) {
     event.preventDefault();

@@ -22,7 +22,7 @@ try {
 } catch (e) {
   console.log(e);
 }
-//   receive messages from options.js
+//   receive messages from popup-mod4.js
 browser.runtime.onMessage.addListener((data, sender) => {
   const { settingChanges, urlChange } = data;
   if (settingChanges) {

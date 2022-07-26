@@ -1,12 +1,15 @@
+//Loading background here
 bg = chrome.extension.getBackgroundPage();
-var fl = 1;
+var fl = 1; //For block button
 function startstop() {
+  //inputting time
   hours = parseInt(document.getElementById("hh").value);
   if (isNaN(hours)) hours = 0;
   minutes = parseInt(document.getElementById("mm").value);
   if (isNaN(minutes)) minutes = 0;
   seconds = parseInt(document.getElementById("ss").value);
   if (isNaN(seconds)) seconds = 0;
+  //time to seconds
   newtimelimit = 60 * 60 * hours + 60 * minutes + seconds;
   starttime = new Date();
   starttime = starttime.getTime();
@@ -80,8 +83,6 @@ function startcounter() {
         document.getElementById("mm").value = "00";
         document.getElementById("ss").value = "00";
         chrome.contentSettings["notifications"].clear({});
-        f2 = 1;
-        window.localStorage.setItem("diff", f2);
         $("#start").removeClass("red").addClass("green").text("Start");
         $("#pause").removeClass("green").addClass("not-active");
       }

@@ -13,16 +13,18 @@ var mode = TYPE.today;
 setDefaults();
 // Set default settings
 function setDefaults() {
-  // Set blacklist
+  // Set username and password
   if (!window.localStorage.getItem("uname")) {
     window.localStorage.setItem("uname", "admin");
   }
   if (!window.localStorage.getItem("pwd")) {
     window.localStorage.setItem("pwd", "123");
   }
+  //set blacklist
   if (!localStorage["blacklist"]) {
     localStorage["blacklist"] = JSON.stringify(["example.com"]);
   }
+  //set restrictionlist and time
   if (!localStorage["restrictionlist"]) {
     localStorage["restrictionlist"] = JSON.stringify(["example.com"]);
   }
@@ -67,13 +69,9 @@ function setDefaults() {
 }
 
 // Add sites which are not in the top threshold sites to "other" category
-// WARNING: Setting the threshold too low will schew the data set
-// so that it will favor sites that already have a lot of time but
-// trash the ones that are visited frequently for short periods of time
 function combineEntries(threshold) {
   var domains = JSON.parse(localStorage["domains"]);
   var other = JSON.parse(localStorage["other"]);
-  // Don't do anything if there are less than threshold domains
   if (Object.keys(domains).length <= threshold) {
     return;
   }
@@ -126,12 +124,12 @@ function checkDate() {
 }
 
 // Extract the domain from the url
-// ex: http://google.com/ -> google.com
 function extractDomain(url) {
   var re = /:\/\/(www\.)?(.+?)\//;
   return url.match(re)[2];
 }
 
+//check if url in blacklist
 function inBlacklist(url) {
   if (!url.match(/^http/)) {
     return true;
@@ -145,6 +143,7 @@ function inBlacklist(url) {
   return false;
 }
 
+//check if url in restrictionlist
 function inRestrictlist(url) {
   if (!url.match(/^http/)) {
     return true;
@@ -178,7 +177,6 @@ function updateData() {
             // Add domain to domain list if not already present
             var domains = JSON.parse(localStorage["domains"]);
             if (!(domain in domains)) {
-              // FIXME: Using object as hash set feels hacky
               domains[domain] = 1;
               localStorage["domains"] = JSON.stringify(domains);
             }
@@ -209,19 +207,7 @@ function updateData() {
             // Update badge with number of minutes spent on
             // current site
             var num_min = Math.floor(domain_data.today / 60).toString();
-            // if (num_min.length < 4) {
-            //   num_min += "m";
-            // }
-            // chrome.browserAction.setBadgeText({
-            //   text: num_min,
-            // });
           }
-          // else {
-          //   // Clear badge
-          //   chrome.browserAction.setBadgeText({
-          //     text: "",
-          //   });
-          // }
         }
       );
     }

@@ -8,7 +8,6 @@ const SETTINGS_LIST = {
   auto_skip_ads: { defaultValue: false, eventType: "click" },
   remove_entire_sidebar: { defaultValue: false, eventType: "click" },
   remove_comments: { defaultValue: false, eventType: "click" },
-  always_on: { defaultValue: false, eventType: "click" },
 };
 const VALID_SETTINGS = Object.keys(SETTINGS_LIST);
 
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Change settings with the options menu.
+// Change settings with the menu.
 Object.entries(SETTINGS_LIST).forEach(([key, { eventType }]) => {
   const settingElements = Array.from(document.getElementsByClassName(key));
   settingElements.forEach((button) =>

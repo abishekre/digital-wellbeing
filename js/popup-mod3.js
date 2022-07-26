@@ -243,7 +243,7 @@ function drawTable(table_data, type) {
   var options = {
     allowHtml: true,
     sort: "disable",
-    width: "100%",
+    width: "96vw",
     height: "100%",
     cssClassNames: cssClassNames,
     border: "#333333",
