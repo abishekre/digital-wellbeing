@@ -3,88 +3,48 @@
   <head>
     <title>Screen Timer Options</title>
     <script src="js/options.js"></script>
-    <style>
-      .tohide{
-        left: 0px;
-      }
-    </style>
-    <!-- <link rel="stylesheet" type="text/css" href="css/options.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/options.css" />
   </head>
   <body>
-    <!-- <script src="js/options.js"></script> -->
     <div id="header">
       <h1>Screen Timer Options</h1>
     </div>
     <div id="loginpg">
-      <label>Username: </label>
-      <input id="usrname" type="text" placeholder="username"/><br>
-      <label>Password: </label>
-      <input id="pswd" type="password" placeholder="password"/>
-      <input type="button" value="Login" id="login">
-      <div id="unsuccessful"></div>
+      <label id="login-text">Controls Login</label>
+      <input id="usrname" type="text" placeholder="username" /><br />
+      <input id="pswd" type="password" placeholder="password" />
+      <input type="button" value="Login" id="login" />
+      <div id="unsuccessful">Invalid Credentials!</div>
     </div>
     <div id="tohide">
-    <div id="settings">
-      <table>
-        <tbody>
-          <tr>
-            <th>
-              Sites to not track<br />
-              (one per line)
-            </th>
-            <td><textarea id="blacklist"></textarea></td>
-            <td id="blacklist-description">
-              Screen Timer will not track data of any website on this list.
-              Existing data for these sites will also be removed.
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Sites to Restrict Usage<br />
-              (one per line)
-            </th>
-            <td><textarea id="restrictionlist"></textarea></td>
-            <td><textarea id="restrictiontime"></textarea></td>
-            <td id="restrictiontime-description" >
-              Screen Timer will restrict usage of websites on this list. 
-              The corresponding time entered will be the maximum time allowed.
-            </td>
-          </tr>
-          <tr>
-            <th>Chart Display Limit</th>
-            <td>
-              <label>Show Top</label>
-              <input id="chart_limit" type="text" size="2" maxlength="2" />
-              <label>Sites</label>
-            </td>
-            <td id="limit-description">
-              Sites below the limit will be grouped into the "Other" category.
-            </td>
-          </tr>
-          <tr>
-            <th>
-            Login Details
-            </th>
-            <td>
-              <label>Username</label>
-              <input id="username" type="text" size="5"/><br>
-              <label>Password</label>
-              <input id="passwd" type="text" size="5" />
-            </td>
-          </tr>
-            <th>Storage</th>
-            <td><button id="clear-data">Clear All Data</button></td>
-            <td id="storage-description">
-              There is no way to recover your data once you delete it.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div id="footer">
-      <button id="save-button">Save</button>
-      <span id="status"></span>
-    </div>
+      <div id="settings">
+        <label class="lab">Sites to not track (one per line) </label>
+        <textarea class="text" id="blacklist"></textarea><br />
+        <label class="lab">Sites to Restrict Usage (one per line)</label>
+        <textarea class="text" id="restrictionlist"></textarea>
+        <textarea class="text" id="restrictiontime"></textarea><br />
+        <label class="lab">Chart Display Limit</label><br /><br />
+        <label class="lab">Show Top</label>
+        <input
+          class="text show-top"
+          id="chart_limit"
+          type="text"
+          size="2"
+          maxlength="2"
+        />
+        <div class="login-details">
+          <label class="lab login-text">Login Details</label><br /><br /><br />
+          <label class="lab">Username</label>
+          <input class="text up" id="username" type="text" size="5" /><br />
+          <label class="lab">Password</label>
+          <input class="text up" id="passwd" type="text" size="5" /><br /><br />
+        </div>
+        <button id="clear-data">Clear All Data</button>
+      </div>
+      <div id="footer">
+        <button id="save-button">Save</button>
+        <span id="status"></span>
+      </div>
     </div>
 
     <script src="js/paswd.js"></script>
