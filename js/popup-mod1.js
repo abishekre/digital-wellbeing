@@ -4,11 +4,11 @@ function saveNewSession() {
   if ($("#newSessionName").val() !== "") {
     chrome.tabs.query({ currentWindow: true }, function (activeTabs) {
       var sessions = JSON.parse(localStorage.getItem(storageName));
-      activeTabs.splice(0, 0, $("#newSessionName").val());
+      activeTabs.splice(0, 0, $("#newSessionName").val());//save and arrange  array with new session name
       sessions.push(activeTabs);
       localStorage.setItem(storageName, JSON.stringify(sessions));
       let name = $("#newSessionName").val();
-      chrome.notifications.create({
+      chrome.notifications.create({//create notification while saving
         type: "basic",
         title: "Saved",
         message: "Your session " + name + " is saved.",
@@ -29,7 +29,7 @@ function saveNewSession() {
   $("#newSessionName").focus();
 }
 
-function printSessions() {
+function printSessions() {//display sessions
   if (localStorage.getItem(storageName) === null)
     localStorage.setItem(storageName, JSON.stringify(new Array()));
   try {
@@ -50,7 +50,7 @@ function printSessions() {
     }
   }
 
-  function getSessionLine(tabsArray, id) {
+  function getSessionLine(tabsArray, id) {//
     var output =
       '<div class="seslist"><div class="savedname" >' + tabsArray[0] + "</div>";
     var output =
@@ -66,11 +66,11 @@ function printSessions() {
   }
 }
 
-function loadSession(event) {
+function loadSession(event) {//load the sessions
   var session = JSON.parse(localStorage.getItem(storageName))[event.data.index];
   session.splice(0, 1); // Remove title from array
   chrome.tabs.query({ currentWindow: true }, function (activeTabs) {
-    var tab;
+    var tab;//Active tabs less than saved sessions tabs
     if (session.length >= activeTabs.length) {
       for (tab = 0; tab < activeTabs.length; tab++) {
         chrome.tabs.update(activeTabs[tab].id, { url: session[tab].url });
@@ -79,7 +79,7 @@ function loadSession(event) {
         chrome.tabs.create({ url: session[tab].url, active: false });
       }
       retrieveActiveTab();
-    } else {
+    } else {//Active tabs more
       for (tab = 0; tab < session.length; tab++) {
         chrome.tabs.update(activeTabs[tab].id, { url: session[tab].url });
       }
@@ -90,7 +90,7 @@ function loadSession(event) {
     }
   });
 
-  function retrieveActiveTab() {
+  function retrieveActiveTab() {//while loading, retrieve the same active tab
     chrome.tabs.query({ currentWindow: true }, function (newTabs) {
       var activeId = -1;
       for (var tabId = 0; activeId == -1; tabId++) {
@@ -101,7 +101,7 @@ function loadSession(event) {
   }
 }
 
-function deleteSession(event) {
+function deleteSession(event) {//while clicking on delete button
   var sessions = JSON.parse(localStorage.getItem(storageName));
   sessions.splice(event.data.index, 1);
   localStorage.setItem(storageName, JSON.stringify(sessions));
