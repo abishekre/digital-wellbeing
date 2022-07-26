@@ -1,5 +1,5 @@
 bg = chrome.extension.getBackgroundPage();
-var fl=1;
+var fl = 1;
 function startstop() {
   hours = parseInt(document.getElementById("hh").value);
   if (isNaN(hours)) hours = 0;
@@ -17,7 +17,6 @@ function startstop() {
     $("#start").removeClass("red").addClass("green").text("Start");
     $("#pause").removeClass("green").addClass("not-active");
     clearInterval(newInterval);
-   
   } else {
     // turn on
     if (newtimelimit > 0) {
@@ -36,7 +35,7 @@ function startstop() {
 function stop() {
   bg.clearalarm();
   clearInterval(newInterval);
-  console.log(window.localStorage.getItem('diff'));
+  console.log(window.localStorage.getItem("diff"));
   chrome.contentSettings["notifications"].clear({});
   chrome.storage.local.set({ timelimit: 0 });
   $("#start").removeClass("red").addClass("green").text("Start");
@@ -81,45 +80,43 @@ function startcounter() {
         document.getElementById("mm").value = "00";
         document.getElementById("ss").value = "00";
         chrome.contentSettings["notifications"].clear({});
-        f2=1;
-        window.localStorage.setItem('diff',f2);
+        f2 = 1;
+        window.localStorage.setItem("diff", f2);
         $("#start").removeClass("red").addClass("green").text("Start");
         $("#pause").removeClass("green").addClass("not-active");
       }
     }, 1000);
   });
 }
-if(!window.localStorage.getItem('toggle'))
-{
-  window.localStorage.setItem('toggle',fl);
+if (!window.localStorage.getItem("toggle")) {
+  window.localStorage.setItem("toggle", fl);
 }
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   chrome.contentSettings["notifications"].clear({});
   const c = document.getElementById("always_on");
-  c.addEventListener('click',function(){
+  c.addEventListener("click", function () {
     console.log("btn clicked");
-    var t=window.localStorage.getItem('toggle');
+    var t = window.localStorage.getItem("toggle");
     console.log(t);
-    if(t==1)
-    {
+    if (t == 1) {
       console.log("if");
       chrome.contentSettings["notifications"].set({
         primaryPattern: "<all_urls>",
         setting: "block",
       });
-       
-        t = 0;
-        window.localStorage.setItem('toggle',t);
-        console.log(t);
+      c.value = "Unblock";
 
-    }
-    else if(t==0){
+      t = 0;
+      window.localStorage.setItem("toggle", t);
+      console.log(t);
+    } else if (t == 0) {
       console.log("else");
-      chrome.contentSettings['notifications'].clear({});
-      t=1;
-      window.localStorage.setItem('toggle',t);
-  }
-    })
+      chrome.contentSettings["notifications"].clear({});
+      t = 1;
+      window.localStorage.setItem("toggle", t);
+      c.value = "Block";
+    }
+  });
   document.getElementById("start").addEventListener("click", startstop);
   document.getElementById("pause").addEventListener("click", stop);
   if (bg.started == 1) {
@@ -130,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
       primaryPattern: "<all_urls>",
       setting: "block",
     });
-
 
     startcounter();
   } else {
