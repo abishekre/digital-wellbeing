@@ -4,7 +4,7 @@ function saveNewSession() {
   if ($("#newSessionName").val() !== "") {
     chrome.tabs.query({ currentWindow: true }, function (activeTabs) {
       var sessions = JSON.parse(localStorage.getItem(storageName));
-      activeTabs.splice(0, 0, $("#newSessionName").val());
+      activeTabs.splice(0, 0, $("#newSessionName").val());//save and arrange  array with new session name
       sessions.push(activeTabs);
       localStorage.setItem(storageName, JSON.stringify(sessions));
       let name = $("#newSessionName").val();
