@@ -54,7 +54,6 @@ function save_options() {
       restrictiontime.push(seconds);
     }
   }
-  //restrictiontime1.value = restrictiontime.join("\n");
   // Get rid of empty lines
   for (var i = 0; i < restrictionlist_domains.length; i++) {
     var domain = restrictionlist_domains[i];
@@ -83,6 +82,26 @@ function save_options() {
     limit_data.value = limit;
   } else {
     limit_data.value = localStorage["chart_limit"];
+  }
+
+  const uname = document.getElementById("username");
+  if(uname)
+  {
+    localStorage["uname"] = uname.value;
+    uname.value = localStorage["uname"];
+  }
+  else{
+    uname.value = localStorage["uname"];
+  }
+
+  const pass = document.getElementById("passwd");
+  if(uname)
+  {
+    localStorage["pwd"] = uname.value;
+    uname.value = localStorage["pwd"];
+  }
+  else{
+    uname.value = localStorage["pwd"];
   }
 
   // Update status to let user know options were saved.
@@ -142,6 +161,17 @@ function restore_options() {
   restrictiontimel.value = restrictiontime.join("\n");
   var limitEl = document.getElementById("chart_limit");
   limitEl.value = localStorage["chart_limit"];
+
+  var uname1 = window.localStorage.getItem('uname');
+  var uname = document.getElementById("username");
+  uname.value = uname1;
+  var uname1 = window.localStorage.getItem('pwd');
+  var uname = document.getElementById("passwd");
+  uname.value = uname1;
+  // console.log(JSON.parse(localStorage.getItem('username')));
+  // const uname1 = document.getElementById("uname");
+  // console.log(localStorage["uname"]);
+//   uname1.value = JSON.parse(localStorage["uname"]);
 }
 
 // Clear all data except for blacklist
@@ -154,6 +184,7 @@ function clearData() {
   location.reload();
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
   // Restore options
   restore_options();
@@ -164,15 +195,15 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", save_options);
   document.querySelector("#clear-data").addEventListener("click", clearData);
   var rows = document.querySelectorAll("tr");
-  var mouseoverHandler = function () {
-    this.querySelector(".description").style.visibility = "visible";
-  };
-  var mouseoutHandler = function () {
-    this.querySelector(".description").style.visibility = "hidden";
-  };
-  for (var i = 0; i < rows.length; i++) {
-    var row = rows[i];
-    row.addEventListener("mouseover", mouseoverHandler);
-    row.addEventListener("mouseout", mouseoutHandler);
-  }
+  // var mouseoverHandler = function () {
+  //   this.querySelector(".description").style.visibility = "visible";
+  // };
+  // var mouseoutHandler = function () {
+  //   this.querySelector(".description").style.visibility = "hidden";
+  // };
+  // for (var i = 0; i < rows.length; i++) {
+  //   var row = rows[i];
+  //   row.addEventListener("mouseover", mouseoverHandler);
+  //   row.addEventListener("mouseout", mouseoutHandler);
+  // }
 });

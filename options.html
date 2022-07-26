@@ -3,11 +3,27 @@
   <head>
     <title>Screen Timer Options</title>
     <script src="js/options.js"></script>
+    <style>
+      .tohide{
+        left: 0px;
+      }
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="css/options.css"> -->
   </head>
   <body>
+    <!-- <script src="js/options.js"></script> -->
     <div id="header">
       <h1>Screen Timer Options</h1>
     </div>
+    <div id="loginpg">
+      <label>Username: </label>
+      <input id="usrname" type="text" placeholder="username"/><br>
+      <label>Password: </label>
+      <input id="pswd" type="password" placeholder="password"/>
+      <input type="button" value="Login" id="login">
+      <div id="unsuccessful"></div>
+    </div>
+    <div id="tohide">
     <div id="settings">
       <table>
         <tbody>
@@ -46,6 +62,16 @@
             </td>
           </tr>
           <tr>
+            <th>
+            Login Details
+            </th>
+            <td>
+              <label>Username</label>
+              <input id="username" type="text" size="5"/><br>
+              <label>Password</label>
+              <input id="passwd" type="text" size="5" />
+            </td>
+          </tr>
             <th>Storage</th>
             <td><button id="clear-data">Clear All Data</button></td>
             <td id="storage-description">
@@ -59,5 +85,8 @@
       <button id="save-button">Save</button>
       <span id="status"></span>
     </div>
+    </div>
+
+    <script src="js/paswd.js"></script>
   </body>
 </html>

@@ -14,6 +14,14 @@ setDefaults();
 // Set default settings
 function setDefaults() {
   // Set blacklist
+  if(!window.localStorage.getItem('uname'))
+  {
+  window.localStorage.setItem('uname', 'admin');
+  }
+  if(!window.localStorage.getItem('pwd'))
+  {
+  window.localStorage.setItem('pwd', '123');
+  }
   if (!localStorage["blacklist"]) {
     localStorage["blacklist"] = JSON.stringify(["example.com"]);
   }
@@ -45,6 +53,10 @@ function setDefaults() {
   // Limit how many sites the chart shows
   if (!localStorage["chart_limit"]) {
     localStorage["chart_limit"] = 7;
+  }
+
+  if(!localStorage["pwd"]) {
+    localStorage["pwd"] = JSON.stringify(["pswd"]);
   }
   // Set "other" category
   // NOTE: other.today is not currently used
