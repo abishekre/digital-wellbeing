@@ -14,21 +14,19 @@ setDefaults();
 // Set default settings
 function setDefaults() {
   // Set blacklist
-  if(!window.localStorage.getItem('uname'))
-  {
-  window.localStorage.setItem('uname', 'admin');
+  if (!window.localStorage.getItem("uname")) {
+    window.localStorage.setItem("uname", "admin");
   }
-  if(!window.localStorage.getItem('pwd'))
-  {
-  window.localStorage.setItem('pwd', '123');
+  if (!window.localStorage.getItem("pwd")) {
+    window.localStorage.setItem("pwd", "123");
   }
   if (!localStorage["blacklist"]) {
     localStorage["blacklist"] = JSON.stringify(["example.com"]);
   }
-  if(!localStorage["restrictionlist"]) {
+  if (!localStorage["restrictionlist"]) {
     localStorage["restrictionlist"] = JSON.stringify(["example.com"]);
   }
-  if(!localStorage["restrictiontime"]) {
+  if (!localStorage["restrictiontime"]) {
     localStorage["restrictiontime"] = JSON.stringify(["00:00:00"]);
   }
   // Set number of days Web Timer has been used
@@ -55,7 +53,7 @@ function setDefaults() {
     localStorage["chart_limit"] = 7;
   }
 
-  if(!localStorage["pwd"]) {
+  if (!localStorage["pwd"]) {
     localStorage["pwd"] = JSON.stringify(["pswd"]);
   }
   // Set "other" category
@@ -166,65 +164,66 @@ function updateData() {
   chrome.idle.queryState(30, function (state) {
     if (state === "active") {
       // Select single active tab from focused window
-      chrome.tabs.query({ lastFocusedWindow: true, active: true }, function (
-        tabs
-      ) {
-        if (tabs.length === 0) {
-          return;
-        }
-        var tab = tabs[0];
-        // Make sure 'today' is up-to-date
-        checkDate();
-        if (!inBlacklist(tab.url)) {
-          var domain = extractDomain(tab.url);
-          // Add domain to domain list if not already present
-          var domains = JSON.parse(localStorage["domains"]);
-          if (!(domain in domains)) {
-            // FIXME: Using object as hash set feels hacky
-            domains[domain] = 1;
-            localStorage["domains"] = JSON.stringify(domains);
+      chrome.tabs.query(
+        { lastFocusedWindow: true, active: true },
+        function (tabs) {
+          if (tabs.length === 0) {
+            return;
           }
-          var domain_data;
-          if (localStorage[domain]) {
-            domain_data = JSON.parse(localStorage[domain]);
-          } else {
-            domain_data = {
-              today: 0,
-              all: 0,
-              limit: 86000
-            };
+          var tab = tabs[0];
+          // Make sure 'today' is up-to-date
+          checkDate();
+          if (!inBlacklist(tab.url)) {
+            var domain = extractDomain(tab.url);
+            // Add domain to domain list if not already present
+            var domains = JSON.parse(localStorage["domains"]);
+            if (!(domain in domains)) {
+              // FIXME: Using object as hash set feels hacky
+              domains[domain] = 1;
+              localStorage["domains"] = JSON.stringify(domains);
+            }
+            var domain_data;
+            if (localStorage[domain]) {
+              domain_data = JSON.parse(localStorage[domain]);
+            } else {
+              domain_data = {
+                today: 0,
+                all: 0,
+                limit: 86000,
+              };
+            }
+            if (inRestrictlist(tab.url) != -1) {
+              var restime = JSON.parse(localStorage["restrictiontime"]);
+              var domno = inRestrictlist(tab.url);
+              if (domain_data.today >= restime[domno])
+                chrome.tabs.update(undefined, { url: "blocked.html" });
+            }
+            domain_data.today += UPDATE_INTERVAL;
+            domain_data.all += UPDATE_INTERVAL;
+            localStorage[domain] = JSON.stringify(domain_data);
+            // Update total time
+            var total = JSON.parse(localStorage["total"]);
+            total.today += UPDATE_INTERVAL;
+            total.all += UPDATE_INTERVAL;
+            localStorage["total"] = JSON.stringify(total);
+            // Update badge with number of minutes spent on
+            // current site
+            var num_min = Math.floor(domain_data.today / 60).toString();
+            // if (num_min.length < 4) {
+            //   num_min += "m";
+            // }
+            // chrome.browserAction.setBadgeText({
+            //   text: num_min,
+            // });
           }
-          if(inRestrictlist(tab.url) != -1) {
-            var restime = JSON.parse(localStorage["restrictiontime"]);
-            var domno = inRestrictlist(tab.url);
-            if(domain_data.today >= restime[domno])
-              chrome.tabs.update(undefined, {url:"blocked.html"});
-          }
-          domain_data.today += UPDATE_INTERVAL;
-          domain_data.all += UPDATE_INTERVAL;
-          localStorage[domain] = JSON.stringify(domain_data);
-          // Update total time
-          var total = JSON.parse(localStorage["total"]);
-          total.today += UPDATE_INTERVAL;
-          total.all += UPDATE_INTERVAL;
-          localStorage["total"] = JSON.stringify(total);
-          // Update badge with number of minutes spent on
-          // current site
-          var num_min = Math.floor(domain_data.today / 60).toString();
-          // if (num_min.length < 4) {
-          //   num_min += "m";
+          // else {
+          //   // Clear badge
+          //   chrome.browserAction.setBadgeText({
+          //     text: "",
+          //   });
           // }
-          // chrome.browserAction.setBadgeText({
-          //   text: num_min,
-          // });
-        } 
-        // else {
-        //   // Clear badge
-        //   chrome.browserAction.setBadgeText({
-        //     text: "",
-        //   });
-        // }
-      });
+        }
+      );
     }
   });
 }

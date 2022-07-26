@@ -4,8 +4,6 @@ let always_on = false;
 const cb = document.getElementById("always_on");
 
 function startstop() {
-  //alert("hi");
-
   hours = parseInt(document.getElementById("hh").value);
   if (isNaN(hours)) hours = 0;
   minutes = parseInt(document.getElementById("mm").value);
@@ -111,14 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
         setting: "block",
       });
     } else {
-      // always_on = false;
       chrome.contentSettings["notifications"].clear({});
     }
   }
-  // if(always_on)
-  // document.getElementById(always-on).checked = true;
-  // else
-  // document.getElementById(always-on).checked = false;
 
   document.getElementById("start").addEventListener("click", startstop);
   document.getElementById("pause").addEventListener("click", stop);
@@ -134,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     $("#start").removeClass("red").addClass("green").text("Start");
     $("#pause").removeClass("green").addClass("not-active");
-    // chrome.contentSettings["notifications"].clear({});
     running = false;
 
     chrome.storage.local.get({ timelimit: 0 }, function (result) {

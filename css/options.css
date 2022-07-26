@@ -28,7 +28,6 @@ body {
 h1 {
     position: absolute;
     width: 400px;
-    /* height: 50px; */
     top: 10px;
 
     font-family: 'Inter';
@@ -132,7 +131,6 @@ h1 {
     position: absolute;
     top: 23px;
     left: 65px;
-    /* border-bottom: solid 2px var(--dark-black); */
 
     font-family: 'Inter';
     font-style: normal;
@@ -149,9 +147,6 @@ h1 {
 #login {
     position: absolute;
     vertical-align: middle;
-    /* padding-left: 20px;
-    padding-right: 20px; */
-    /* margin-top: 2px; */
     top: 200px;
     left: 50px;
     background-color: var(--ld-btn);
@@ -178,8 +173,6 @@ h1 {
     position: absolute;
     top: 23px;
     left: 50px;
-    /* border-bottom: solid 2px var(--dark-black); */
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;
@@ -232,11 +225,8 @@ h1 {
 
 .lab {
     position: absolute;
-    /* top: 23px; */
     left: 30px;
     width: 150px;
-    /* border-bottom: solid 2px var(--dark-black); */
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;
@@ -300,9 +290,6 @@ h1 {
 #save-button {
     position: absolute;
     vertical-align: middle;
-    /* padding-left: 20px;
-    padding-right: 20px; */
-    /* margin-top: 2px; */
     top: 350px;
     left: 300px;
     background-color: var(--ld-btn);
@@ -335,9 +322,6 @@ h1 {
 #clear-data {
     position: absolute;
     vertical-align: middle;
-    /* padding-left: 20px;
-    padding-right: 20px; */
-    /* margin-top: 2px; */
     top: 350px;
     left: 600px;
     background-color: var(--dlt-btn-clr);
@@ -374,11 +358,8 @@ h1 {
 
 .options-saved {
     position: absolute;
-    /* top: 23px; */
     left: 500px;
     width: 600px;
-    /* border-bottom: solid 2px var(--dark-black); */
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;

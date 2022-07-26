@@ -21,10 +21,7 @@
   ],
 
   "background": {
-    "scripts": [
-      "js/background-mod3.js",
-      "js/background-mod2.js"
-    ]
+    "scripts": ["js/background-mod3.js", "js/background-mod2.js"]
   },
 
   "browser_action": {

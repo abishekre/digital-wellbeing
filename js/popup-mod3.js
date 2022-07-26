@@ -15,7 +15,7 @@ if (window.top === window.self) {
       show(bg.TYPE.average);
     } else if (bg.mode === bg.TYPE.all) {
       show(bg.TYPE.all);
-    } 
+    }
   });
 }
 // Show options in a new tab
@@ -77,7 +77,7 @@ function displayData(type) {
       );
     } else if (type === bg.TYPE.all) {
       numSeconds = domain_data.all;
-    } 
+    }
     if (numSeconds > 0) {
       chart_data.push([
         domain,
@@ -152,7 +152,7 @@ function displayData(type) {
     numSeconds = Math.floor(total.all / parseInt(localStorage["num_days"], 10));
   } else if (type === bg.TYPE.all) {
     numSeconds = total.all;
-  } 
+  }
   limited_data.push([
     {
       v: "Total",
@@ -199,25 +199,18 @@ function drawChart(chart_data) {
       text: "percentage",
     },
     legend: {
-      position: 'right',
-      textStyle:{color: 'white'}
+      position: "right",
+      textStyle: { color: "white" },
     },
-    pieSliceBorderColor: '#333333',
-    pieSliceText: 'none',
-    backgroundColor: '#333333',
+    pieSliceBorderColor: "#333333",
+    pieSliceText: "none",
+    backgroundColor: "#333333",
     width: 400,
     height: 300,
-    backgroundColor: '#333333',
-    fontColor: '#ffffff',
-    // is3D: true,
-    pieSliceText: 'none',
-
-    // chartArea: {
-    //   width: "100%",
-    //   height: "100%",
-    // },
+    backgroundColor: "#333333",
+    fontColor: "#ffffff",
+    pieSliceText: "none",
   };
-
 
   // Instantiate and draw our chart, passing in some options.
   var chart = new google.visualization.PieChart(
@@ -236,16 +229,15 @@ function drawTable(table_data, type) {
     timeDesc = "Daily Average";
   } else if (type === bg.TYPE.all) {
     timeDesc = "Over " + localStorage["num_days"] + " Days";
-  } 
+  }
   data.addColumn("number", "Time Spent (" + timeDesc + ")");
   data.addRows(table_data);
 
   var cssClassNames = {
-    'headerRow': 'cssHeaderRow',
-    'tableRow': 'cssTableRow',
-    'hoverTableRow': 'cssHoverTableRow',
-    'oddTableRow': 'cssOddTableRow',
-    // 'tableCell': 'custom-table-td'
+    headerRow: "cssHeaderRow",
+    tableRow: "cssTableRow",
+    hoverTableRow: "cssHoverTableRow",
+    oddTableRow: "cssOddTableRow",
   };
 
   var options = {
@@ -254,8 +246,7 @@ function drawTable(table_data, type) {
     width: "100%",
     height: "100%",
     cssClassNames: cssClassNames,
-    border: '#333333'
-
+    border: "#333333",
   };
 
   var table = new google.visualization.Table(
@@ -265,22 +256,18 @@ function drawTable(table_data, type) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // document.getElementById("today").active();
   document.querySelector("#today").addEventListener("click", function () {
     show(bg.TYPE.today);
-    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
+    document.getElementsByTagName("svg")[0].style.overflow = "visible";
   });
   document.querySelector("#average").addEventListener("click", function () {
     show(bg.TYPE.average);
-    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
+    document.getElementsByTagName("svg")[0].style.overflow = "visible";
   });
   document.querySelector("#all").addEventListener("click", function () {
     show(bg.TYPE.all);
-    document.getElementsByTagName("svg")[0].style.overflow = 'visible';
+    document.getElementsByTagName("svg")[0].style.overflow = "visible";
   });
 
   document.querySelector("#options").addEventListener("click", showOptions);
-  
-
 });
-
