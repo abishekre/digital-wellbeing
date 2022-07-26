@@ -154,10 +154,6 @@ function restore_options() {
   var uname1 = window.localStorage.getItem("pwd");
   var uname = document.getElementById("passwd");
   uname.value = uname1;
-  // console.log(JSON.parse(localStorage.getItem('username')));
-  // const uname1 = document.getElementById("uname");
-  // console.log(localStorage["uname"]);
-  //   uname1.value = JSON.parse(localStorage["uname"]);
 }
 
 // Clear all data except for blacklist
@@ -180,15 +176,4 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", save_options);
   document.querySelector("#clear-data").addEventListener("click", clearData);
   var rows = document.querySelectorAll("tr");
-  // var mouseoverHandler = function () {
-  //   this.querySelector(".description").style.visibility = "visible";
-  // };
-  // var mouseoutHandler = function () {
-  //   this.querySelector(".description").style.visibility = "hidden";
-  // };
-  // for (var i = 0; i < rows.length; i++) {
-  //   var row = rows[i];
-  //   row.addEventListener("mouseover", mouseoverHandler);
-  //   row.addEventListener("mouseout", mouseoutHandler);
-  // }
 });
