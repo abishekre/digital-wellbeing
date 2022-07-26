@@ -18,6 +18,8 @@ block_button.addEventListener('click',function(){
     else{
         f = true;
         block_subtext.style.display = 'inline';
+        block_subtext.style.top = '180px';
+
     naughty.style.display = 'none';
     }
 });
